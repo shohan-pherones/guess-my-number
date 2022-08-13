@@ -22,11 +22,12 @@ body {
   font-size: 1.5rem;
   border-radius: 3px;
   cursor: pointer;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
 
 .btn:hover {
-  background-color: mediumseagreen;
+  background-color: teal;
   color: #eaeaea;
 }
 
@@ -51,7 +52,7 @@ body {
 }
 
 .game-correct-ans {
-  background-color: mediumseagreen;
+  background-color: teal;
   height: 10rem;
   width: 10rem;
   border-radius: 3px;
@@ -59,6 +60,7 @@ body {
   display: grid;
   place-items: center;
   font-size: 3.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
 .game-guess-screen {
@@ -80,6 +82,7 @@ body {
   max-width: 15rem;
   padding: 0.5rem;
   border-radius: 3px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
 .score-screen {
