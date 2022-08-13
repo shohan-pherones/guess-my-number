@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="game-screen">
+      <div class="game-header">
+        <button class="btn play-again">Play again!</button>
+        <p>(Between 1 and 20)</p>
+      </div>
+      <h1 class="game-title">Guess my number!</h1>
+      <div class="game-correct-ans">?</div>
+      <div class="game-guess-screen">
+        <div class="check-screen">
+          <input class="input-number" type="number" />
+          <button class="btn check">Check!</button>
+        </div>
+        <div class="score-screen">
+          <p class="guessing-text">Start guessing...</p>
+          <p>💯 Score: <span class="score">20</span></p>
+          <p>🎖️ Highscore: <span class="high-score">0</span></p>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
