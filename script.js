@@ -4,47 +4,38 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
+const displayGuessingText = function (text) {
+  document.querySelector(".guessing-text").textContent = text;
+};
+
 document.querySelector(".check").addEventListener("click", function () {
   const inputNumber = Number(document.querySelector(".input-number").value);
-  console.log(inputNumber, typeof inputNumber);
 
   // when there is no input
   if (!inputNumber) {
-    document.querySelector(".guessing-text").textContent = "🤔 No number!";
+    displayGuessingText("🤔 No number!");
 
     // when player wins
   } else if (inputNumber === secretNumber) {
-    document.querySelector(".guessing-text").textContent = "🤩 Correct number!";
+    displayGuessingText("🤩 Correct number!");
     document.querySelector(".game-correct-ans").textContent = secretNumber;
-
     document.querySelector("body").style.backgroundColor = "teal";
-
     document.querySelector(".game-correct-ans").style.backgroundColor = "#222";
-
     if (score > highScore) {
       highScore = score;
       document.querySelector(".high-score").textContent = highScore;
     }
 
-    // when guess is high
-  } else if (inputNumber > secretNumber) {
+    // when guess is wrong
+  } else if (inputNumber !== secretNumber) {
     if (score > 1) {
-      document.querySelector(".guessing-text").textContent = "🙄 Too high!";
+      displayGuessingText(
+        inputNumber > secretNumber ? "🙄 Too high!" : "😐 Too low!"
+      );
       score--;
       document.querySelector(".score").textContent = score;
     } else {
-      document.querySelector(".guessing-text").textContent = "😒 Game over!";
-      document.querySelector(".score").textContent = 0;
-    }
-
-    // when guess is low
-  } else if (inputNumber < secretNumber) {
-    if (score > 1) {
-      document.querySelector(".guessing-text").textContent = "😐 Too low!";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".guessing-text").textContent = "😒 Game over!";
+      displayGuessingText("😒 Game over!");
       document.querySelector(".score").textContent = 0;
     }
   }
@@ -56,7 +47,7 @@ document.querySelector(".play-again").addEventListener("click", function () {
 
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".game-correct-ans").style.backgroundColor = "teal";
-  document.querySelector(".guessing-text").textContent = "Start guessing...";
+  displayGuessingText("Start guessing...");
   document.querySelector(".score").textContent = score;
   document.querySelector(".input-number").value = "";
   document.querySelector(".game-correct-ans").textContent = "?";
